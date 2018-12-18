@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wpl
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wpl
+    spec:
+      containers:
+        - name: wpl 
+          image: websphere-liberty
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 80
+              name: http
+            - containerPort: 443
+              name: https

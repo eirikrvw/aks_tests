@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pega
+  labels:
+    app: pega
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 443
+  selector:
+    app: pega

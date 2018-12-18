@@ -11,8 +11,8 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:10.4
-          imagePullPolicy: "IfNotPresent"
+          image: pegaregistry.azurecr.io/postgres:9.6-pljava
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 5432
           envFrom:
